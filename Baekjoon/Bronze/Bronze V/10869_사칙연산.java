@@ -32,4 +32,17 @@ public class Main{
         bw.close();
         br.close();
     }
+    // public static void main(String[] args) throws Exception {
+    //     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    //     StringTokenizer st = new StringTokenizer(br.readLine());
+    //     StringBuffer sb = new StringBuffer();
+    //     int n1 = Integer.parseInt(st.nextToken());
+    //     int n2 = Integer.parseInt(st.nextToken());
+    //     sb.append(n1+n2).append("\n");
+    //     sb.append(n1-n2).append("\n");
+    //     sb.append(n1*n2).append("\n");
+    //     sb.append(n1/n2).append("\n");
+    //     sb.append(n1%n2);
+    //     System.out.println(sb.toString());
+    // }
 }
