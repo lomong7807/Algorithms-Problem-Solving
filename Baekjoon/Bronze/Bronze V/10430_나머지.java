@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * 1. 문제정보
  *  - 제목 :나머지
- *  - 번호 : 18108번
+ *  - 번호 : 10430번
  *  - 링크 : https://www.acmicpc.net/problem/10430
  * 2. 풀이핵심
  *  - 주어진 조건대로 출력하는 입출력 기초
@@ -13,6 +13,7 @@ import java.util.*;
  *  - int + ""를 하게되면 내부적으로 StringBuilder로 String을 만든다고 한다.
  *  - int + ""로 변환해보니 성능이 별로다
  */
+
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
