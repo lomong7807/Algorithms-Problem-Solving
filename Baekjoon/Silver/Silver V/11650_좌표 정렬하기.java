@@ -18,6 +18,16 @@ import java.util.*;
  *  - 이전에 10814_나이순 정렬 문제에서와 똑같이 풀어주면 된다.
  *  - 자동으로 key값을 정렬해주는 TreeMap을 사용하고 value는 ArrayList로 하나의 key에 여러 value가 들어갈 수 있음
  *  - 출력은 TreeMap이므로 key는 자동정렬이 되어있고, value는 Collections를 사용해 정렬
+ *  - 다들 배열로 풀었던데, TreeMap으로 구현해봤다.
+ *  - 시간은 빠르지만, 2차원 배열으로 구현한것보다 메모리를 좀 더 사용하긴 한다.
+ *  - Map 사용
+ *    TreeMap: 각 노드마다 추가 메타데이터 저장
+ *    ArrayList: 각 y값마다 별도의 ArrayList 객체 생성
+ *    Integer 박싱: 모든 x, y값이 Integer 객체로 박싱되어 저장
+ *    Map.Entry: 각 키-값 쌍마다 Entry 객체 생성
+ *  - 2차원 배열 int[][] 사용
+ *    int[][]: 연속적인 메모리 공간에 primitive 타입으로 직접 저장
+ *    추가 객체 없음: 컬렉션 프레임워크의 래퍼 객체들이 없음
  */
 
 public class Main {
