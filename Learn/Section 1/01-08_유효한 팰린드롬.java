@@ -1,12 +1,13 @@
 import java.io.*;
 import java.util.*;
 /*
- * 문제: 문자열을 입력받아 뒤집어도 같은 문자열인지 확인
+ * 문제: 팰린드롬(앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열)
+        단, 알파벳만 가지고 검사, 대소문자를 구분하지 않음.
+        즉, 알파벳 이외의 문자들 무시
  * 입력: 문자열
  * 출력: "YES", "NO"
  * 풀이후기:
- *  - 이런 문제들 때문에 lt, rt를 사용해서 순회하며 비교하는가보다.
- *  - 소문자, 대문자도 같은 문자로 취급해서 toUpperCase()로 변환 후 비교해줌.
+ *  - 이전에 풀었던 01-07_회문 문자열에서 조건이 조금 추가된 문제였음.
  * */
 
 public class Main {
@@ -17,12 +18,16 @@ public class Main {
         int rt = arr.length - 1;
 
         while(lt < rt) {
-            if(!(arr[lt] == arr[rt])) {
+            if(!Character.isAlphabetic(arr[lt])) {
+                lt++;
+            }else if(!Character.isAlphabetic(arr[rt])) {
+                rt--;
+            }else if(arr[lt] == arr[rt]) {
+                lt++;
+                rt--;
+            }else {
                 return "NO";
-                break;
             }
-            lt++;
-            rt--;
         }
 
         return "YES";
