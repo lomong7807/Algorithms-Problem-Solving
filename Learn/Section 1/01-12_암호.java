@@ -17,19 +17,27 @@ public class Main {
     public static String solution(int n, String s) {
         StringBuilder sb = new StringBuilder();
         int start = 0;
-        int end = 7;
-// 0 ~ 6, 7 ~ 13, 
+        int end = 6;
+        
 
-        for(int i = 0; i < n; i++) {
+        while(end < s.length()) {
+            int sum = 0;    
 
-            int sum = 0;
-
-            for(int j = start; j < end; j++) {
-                if(s.charAt(j) == '#') {
-                    
+            while(start < end) {
+                if(s.charAt(start) == '#') {
+                    sum += (int)Math.pow(2, end - start + 1);
                 }
+                start++;
             }
+
+            sb.append((char)sum);
+
+            sum = 0;
+            start += 7;
+            end += 7;
         }
+
+        return sb.toString();
     }
 
     public static void main(String[] args) {
