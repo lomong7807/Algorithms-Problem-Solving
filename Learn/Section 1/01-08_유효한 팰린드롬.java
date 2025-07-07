@@ -8,34 +8,30 @@ import java.util.*;
  * 출력: "YES", "NO"
  * 풀이후기:
  *  - 이전에 풀었던 01-07_회문 문자열에서 조건이 조금 추가된 문제였음.
+ *  - 처음에 lt, rt변수로 이동시키면서 확인했는데, 굳이 그렇게 안해도 되는 문제였다.
+ *  - String의 내부 기능들로 충분히 풀이 가능한 문제
+ *  - 먼저 모두 대문자로 변경하고 replaceAll()으로 알파벳이 아닌 문자들을 제거해버린다.
+ *    ([^A-z], ""): A-Z가 아닌 문자들은 모두 ""으로 변경한다는 의미
+ *  - 그 값을 tmp에 담아서 비교했을때 같으면 팰린드롬임
  * */
 
 public class Main {
 
     public static String solution(String s) {
-        char[] arr = s.toCharArray();
-        int lt = 0;
-        int rt = arr.length - 1;
+        s = s.toUpperCase().replaceAll("[^A-Z]", "");
+        
+        String tmp = new StringBuilder(s).reverse().toString();
 
-        while(lt < rt) {
-            if(!Character.isAlphabetic(arr[lt])) {
-                lt++;
-            }else if(!Character.isAlphabetic(arr[rt])) {
-                rt--;
-            }else if(arr[lt] == arr[rt]) {
-                lt++;
-                rt--;
-            }else {
-                return "NO";
-            }
+        if(s.equals(tmp)) {
+            return "YES"
         }
 
-        return "YES";
+        return "NO";
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String str = br.readLine();
-        System.out.print(solution(str.toUpperCase()));
+        System.out.print(solution(str));
     }
 }
