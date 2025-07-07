@@ -8,6 +8,8 @@ import java.util.*;
  * 풀이후기:
  *  - Character.isAlphabetic() 정말 유용하게 쓴다.
  *  - 별로 어려울거 없었음.
+ *  - 그런데 알파벳인지 확인하는 Character.isAlphabetic()이 있다면
+ *    숫자인지 확인하는 Character.isDigit()이 있다.
  * */
 
 public class Main {
@@ -17,7 +19,7 @@ public class Main {
         char[] arr = s.toCharArray();
 
         for(char c : arr) {
-            if(!Character.isAlphabetic(c)) {
+            if(Character.isDigit(c)) {
                 sb.append(c);
             }
         }
