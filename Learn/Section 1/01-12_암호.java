@@ -1,15 +1,12 @@
 import java.io.*;
 import java.util.*;
 /*
- * 문제: 알파벳 대문자로 이루어진 문자열을 입력받아 같은 문자가 연속으로 반복되는 경우 반복되는 숫자 우측에 숫자 출력
-        단, 반복횟수가 1인 경우 생략
- * 입력: 알파벳 대문자로 이루어진 문자열 
- * 출력: 입력받은 문자열을 가공한 문자열
+ * 문제: 입력받은 특수문자를 이진수로 치환하고 해당 숫자의 아스키코드로 문자열 변경
+ * 입력: #, * 으로 이루어진 문자열 # = 1, * = 0이라고 생각한다.
+ * 출력: 입력받은 특수문자 문자열을 가공한 알파벳 문자열
  * 풀이후기:
- *  - 처음에 바로 어떻게 해야될지는 생각이 됐는데, 어떻게 효율적으로 해야될지 몰랐음
- *  - 처음엔 prev라는 변수에 이전 문자열의 값을 저장해서 비교하는 방식으로 구현했음
- *  - 하지만 현재 방식이 메모리나 시간 성능이 훨씬 좋음
- *  - 다음 문자열과 비교하여 count 값으로 count해줌
+ *  - 머릿속으로 어떻게 풀면 되겠다라는 생각은 드는데, 바로 구현이 되지 않았다.
+ *  - Math.pow의 return 값은 double이라 int로 형변환 해줘야 함.
  * */
 
 public class Main {
@@ -17,15 +14,15 @@ public class Main {
     public static String solution(int n, String s) {
         StringBuilder sb = new StringBuilder();
         int start = 0;
-        int end = 6;
+        int end = 7;
         
 
-        while(end < s.length()) {
+        while(end <= s.length()) {
             int sum = 0;    
 
             while(start < end) {
                 if(s.charAt(start) == '#') {
-                    sum += (int)Math.pow(2, end - start + 1);
+                    sum += (int)Math.pow(2, end - start - 1);
                 }
                 start++;
             }
@@ -33,7 +30,6 @@ public class Main {
             sb.append((char)sum);
 
             sum = 0;
-            start += 7;
             end += 7;
         }
 
