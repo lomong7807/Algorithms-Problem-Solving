@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Main {
 
-    public static boolean[] prime;
+    static boolean[] prime;
 
     public static int solution(int n) {
         int count = 0;
@@ -31,9 +31,11 @@ public class Main {
 
     public static void makePrime(int n) {
         prime = new boolean[n + 1];
+
         prime[0] = prime[1] = true;
 
         for(int i = 2; i <= Math.sqrt(n); i++) {
+            
             if(prime[i]) {
                 continue;
             }
