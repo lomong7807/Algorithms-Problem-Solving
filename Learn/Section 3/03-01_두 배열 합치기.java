@@ -14,6 +14,7 @@ import java.util.*;
  *  - 실제로 성능도 List 자료구조로 합친게 더 좋음
  *  - array: 118ms, 26MB
  *  - list: 126ms, 26MB
+ *  - 그리고 몰랐는데, 이런걸 투 포인터 알고리즘이라고 하더라. 포인터가 두개라 그런가보다.
  * */
 
 public class Main {
