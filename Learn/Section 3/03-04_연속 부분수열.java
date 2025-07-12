@@ -16,33 +16,19 @@ public class Main {
 
     public static int solution(int n, int m, int[] arr) {
         int answer = 0;
-        int sum = arr[0];
-
+        int sum = 0;
         int lt = 0;
-        int rt = 1;
 
-        while(rt < arr.length) {
-            if(sum < m) {
-                sum += arr[rt++];
-            }else if(m < sum) {
+        for(int rt = 0; rt < n; rt++) {
+            sum += arr[rt];
+            while(sum > m) {
                 sum -= arr[lt++];
-            }else if(sum == m) {
-                sum -= arr[lt++];
-                sum += arr[rt++];
+            }
+            if(sum == m) {
                 answer++;
             }
         }
-
-        if(m < sum) {
-            while(lt < arr.length) {
-                sum -= arr[lt++];
-                if(sum == m) {
-                    answer++;
-                    break;
-                }
-            }
-        }
-
+        
         return answer;
     }
 
