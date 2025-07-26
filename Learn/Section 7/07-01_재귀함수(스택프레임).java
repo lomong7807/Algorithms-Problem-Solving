@@ -14,22 +14,18 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     public static void dfs(int n) {
-        if(n < 1) {
-            return 1;
-        }
+        if(n < 1) return;
 
-        solution(n - 1);
+        dfs(n - 1);
         sb.append(n).append(" ");
     }
 
-    public static void solution(int n) {
-        dfs(n);
-    }
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        solution(n);
+
+        dfs(n);
+
         System.out.print(sb);
     }
 }
