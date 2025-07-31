@@ -5,6 +5,7 @@ import java.util.*;
  * 입력: 첫 번째 줄에 자연수 N(1<=N<=10)
  * 출력: 첫 번째 줄부터 각 줄에 하나씩 부분집합을 아래와 출력예제와 같은 순서로 출력한다.
  *      단 공집합은 출력하지 않는다.
+ * 지우고 다시 풀어본 횟수: 3
  * 풀이후기:
  *  - 어렵다. 여전히 어렵다.
  *  - 계속 흐름을 생각하자.
@@ -13,22 +14,19 @@ import java.util.*;
 public class Main {
 
     static StringBuilder sb = new StringBuilder();
-    static int[] ch;
+    static boolean[] ch;
     static int n;
 
     public static void dfs(int L) {
-        // 기저 조건: 모든 원소에 대한 결정이 끝났을 때
         if(L == n + 1) {
             for(int i = 1; i <= n; i++) {
-                if(ch[i] == 1) sb.append(i).append(" ");
+                if(ch[i]) sb.append(i).append(" ");
             }
             sb.append("\n");
         }else {
-            // level번째 원소를 포함하는 경우
-            ch[L] = 1;
+            ch[L] = true;
             dfs(L + 1);
-            // level번째 원소를 포함하지 않는 경우
-            ch[L] = 0;
+            ch[L] = false;
             dfs(L + 1);
         }
     }
@@ -36,10 +34,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
+        ch = new boolean[n + 1];
 
-        ch = new int[n + 1];
         dfs(1);
-
         System.out.print(sb);
     }
 }
