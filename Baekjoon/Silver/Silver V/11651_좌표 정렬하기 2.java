@@ -18,8 +18,54 @@ import java.util.*;
  *    시간: 656ms
  *  - 확실히 배열으로 구현한게 오버헤드가 적어 메모리를 덜 쓰는걸 볼 수 있다.
  *  - 그리고 구현도 Map과 비교했을 때 그다지 보기 어렵거나 하지 않음
+ * 
+ *  - Comparable을 공부하고 바로 구현해봤는데 어렵지 않았다. 예전에는 왜 그렇게 어렵게 느껴졌는지 모르겠다.
+ *    근데 성능은 딱히 차이가 없음
  */
 
+// implements Comparable<>
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        int n = Integer.parseInt(br.readLine());
+
+        Point[] arr = new Point[n];
+        for(int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            arr[i] = new Point(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
+        }
+
+        Arrays.sort(arr);
+
+        for(int i = 0; i < n; i++) {
+            sb.append(arr[i].x).append(" ").append(arr[i].y).append("\n");
+        }
+
+        System.out.print(sb);
+    }
+}
+
+class Point implements Comparable<Point> {
+    int x;
+    int y;
+
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        if(this.y == o.y) {
+            return this.x - o.x;
+        }else {
+            return this.y - this.y;
+        }
+    }
+}
+
+// lambda
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
