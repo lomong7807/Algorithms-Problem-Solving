@@ -17,23 +17,21 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     public static void bfs(Node root) {
+
+        int L = 0;
         Deque<Node> Q = new ArrayDeque<>();
         Q.add(root);
 
-        int L = 0;
         while(!Q.isEmpty()) {
             int len = Q.size();
 
-            sb.append(L).append(": ");
             for(int i = 0; i < len; i++) {
                 Node cur = Q.remove();
                 sb.append(cur.val).append(" ");
-
                 if(cur.lt != null) Q.add(cur.lt);
                 if(cur.rt != null) Q.add(cur.rt);
             }
             L++;
-            sb.append("\n");
         }
     }
 
