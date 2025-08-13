@@ -5,7 +5,7 @@ import java.util.*;
  * 입력: 첫 번째 줄에 자연수 N(1<=N<=10)
  * 출력: 첫 번째 줄부터 각 줄에 하나씩 부분집합을 아래와 출력예제와 같은 순서로 출력한다.
  *      단 공집합은 출력하지 않는다.
- * 지우고 다시 풀어본 횟수: 3
+ * 지우고 다시 풀어본 횟수: 4
  * 풀이후기:
  *  - 어렵다. 여전히 어렵다.
  *  - 계속 흐름을 생각하자.
@@ -20,7 +20,9 @@ public class Main {
     public static void dfs(int L) {
         if(L == n + 1) {
             for(int i = 1; i <= n; i++) {
-                if(ch[i]) sb.append(i).append(" ");
+                if(ch[i]) {
+                    sb.append(i).append(" ");
+                }
             }
             sb.append("\n");
         }else {
@@ -35,8 +37,8 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         ch = new boolean[n + 1];
-
         dfs(1);
+
         System.out.print(sb);
     }
 }
