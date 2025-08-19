@@ -18,9 +18,9 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     public static void dfs(int n) {
-        if(n == 0) {
-            return;
-        }
+
+        if(n < 1) return;
+
         dfs(n / 2);
         sb.append(n % 2);
     }
