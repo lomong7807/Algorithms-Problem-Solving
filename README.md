@@ -1,4 +1,4 @@
-# Argorithms-Problem-Solving
+# Algorithms-Problem-Solving
 
 ## 🧑🏻‍💻정리
 
