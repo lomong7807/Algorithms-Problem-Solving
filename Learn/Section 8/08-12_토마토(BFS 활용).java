@@ -24,16 +24,15 @@ import java.util.*;
 
 public class Main {
 
-    static int[][] map = new int[8][8];
-    static int[][] dis = new int[8][8];
+    static int m, n, quantity, L;
+    static int[][] map;
+    static Deque<int[]> Q = new ArrayDeque<>();
     static int[] dx = {0, 0, -1, 1};
-    static int[] dy = {1, -1 ,0, 0};
+    static int[] dy = {1, -1, 0, 0};
 
-    public static void bfs(int x, int y) {
-        Deque<int[]> Q = new ArrayDeque<>();
-        Q.add(new int[]{x, y});
-        map[x][y] = 1;
+    public static void bfs() {
 
+        L = 0;
         while(!Q.isEmpty()) {
             int len = Q.size();
 
@@ -44,34 +43,46 @@ public class Main {
                     int nx = cur[0] + dx[j];
                     int ny = cur[1] + dy[j];
 
-                    if(nx < 1 || 7 < nx || ny < 1 || 7 < ny || map[nx][ny] == 1) {
+                    if(nx < 0 || m <= nx || ny < 0 || n <= ny || map[nx][ny] != 0) {
                         continue;
                     }
 
                     Q.add(new int[]{nx, ny});
-                    dis[nx][ny] = dis[cur[0]][cur[1]] + 1;
                     map[nx][ny] = 1;
+                    quantity--;
                 }
             }
+            L++;
         }
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
 
-        for(int y = 1; y <= 7; y++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            for(int x = 1; x <= 7; x++) {
+        map = new int[m][n];
+
+        for(int y = 0; y < n; y++) {
+            st = new StringTokenizer(br.readLine());
+            for(int x = 0; x < m; x++) {
                 map[x][y] = Integer.parseInt(st.nextToken());
+
+                if(map[x][y] == 0) {
+                    quantity++;
+                }else if(map[x][y] == 1) {
+                    Q.add(new int[]{x, y});
+                }
             }
         }
 
-        bfs(1, 1);
+        bfs();
 
-        if(dis[7][7] == 0) {
+        if(0 < quantity) {
             System.out.print(-1);
         }else {
-            System.out.print(dis[7][7]);
+            System.out.print(L);
         }
     }
 }
