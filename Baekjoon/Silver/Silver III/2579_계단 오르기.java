@@ -6,41 +6,42 @@ import java.util.*;
  *  - 번호 : 2579
  *  - 링크 : https://www.acmicpc.net/problem/2579
  * 2. 풀이핵심
- *  - 맵
+ *  - 
  * 3. 풀이후기
- *  - 어렵지 않은 문제였음
+ *  - 
  */
 
 public class Main {
 
+    static int n;
     static Integer[] dp;
     static int[] arr;
 
     public static int dfs(int n) {
-        if(dp[n] == null) {
-            dp[n] = Math.max(dfs(n - 2), dfs(n - 3) + arr[n - 1]) + arr[n];
-        }
-
-        return dp[n];
+        
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        n = Integer.parseInt(br.readLine());
         arr = new int[n + 1];
         dp = new Integer[n + 1];
 
-        for(int i = 0; i < n; i++) {
+        for(int i = 1; i <= n; i++) {
             arr[i] = Integer.parseInt(br.readLine());
         }
 
-        dp[0] = arr[0];
-        dp[1] = arr[1];
-
-        if(2 <= n) {
-            dp[2] = arr[1] + arr[2];
+        // 계단이 1개 또는 2개밖에 없을때 예외 처리
+        if(n == 1) {
+            System.out.println(stairs[1]);
+            return;
+        }
+        if(n == 2) {
+            System.out.println(stairs[1] + stairs[2]);
+            return;
         }
 
-        System.out.print(dfs(n));
+        int result = Math.max(dfs(n, 0), dfs(n, 1));
+        System.out.print(result);
     }
 }
