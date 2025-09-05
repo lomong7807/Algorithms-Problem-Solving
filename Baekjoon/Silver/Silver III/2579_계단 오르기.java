@@ -18,7 +18,11 @@ public class Main {
     static int[] arr;
 
     public static int dfs(int n) {
-        
+        if(dp[n] == null) {
+            dp[n] = 
+        }
+
+        return dp[n];
     }
 
     public static void main(String[] args) throws IOException {
