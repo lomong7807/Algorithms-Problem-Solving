@@ -6,9 +6,10 @@ import java.util.*;
  *  - 번호 : 2579
  *  - 링크 : https://www.acmicpc.net/problem/2579
  * 2. 풀이핵심
- *  -
+ *  - dfs
+ *  - 메모이제이션
  * 3. 풀이후기
- *  -
+ *  - dfs 연습이 매우 많이 필요할듯 하다.
  */
 
 public class Main {
