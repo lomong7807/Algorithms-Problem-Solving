@@ -15,19 +15,17 @@ import java.util.*;
 
 public class Main {
 
-    static int n, timeLimit;
-    static int answer = Integer.MIN_VALUE;
-    static int[][] test;
-
+    static int n, m, answer = Integer.MIN_VALUE;
+    static int[] score;
+    static int[] time;
 
     public static void dfs(int L, int scoreSum, int timeSum) {
-        if(timeLimit < timeSum) return;
-
+        if(m < timeSum) return;
         if(L == n) {
-            answer = Math.max(answer, scoreSum);
+            answer = Math.max(scoreSum, answer);
         }else {
-            dfs(L + 1, scoreSum + test[L][0], timeSum + test[L][1]);
-            dfs(L + 1, scoreSum, timeSum);
+            dfs(L + 1, scoreSum + score[L], timeSum + time[L]);
+            dfs(L + 1, scoreSum, timeSum );
         }
     }
 
@@ -35,16 +33,14 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
-        timeLimit = Integer.parseInt(st.nextToken());
-
-        test = new int[n][2];
+        m = Integer.parseInt(st.nextToken());
+        score = new int[n];
+        time = new int[n];
 
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
-            int score = Integer.parseInt(st.nextToken());
-            int time = Integer.parseInt(st.nextToken());
-            test[i][0] = score;
-            test[i][1] = time;
+            score[i] = Integer.parseInt(st.nextToken());
+            time[i] = Integer.parseInt(st.nextToken());
         }
 
         dfs(0, 0, 0);

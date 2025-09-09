@@ -17,91 +17,15 @@ public class Main {
 
     static String answer = "NO";
     static int[] arr;
-    static int total;
-
-    public static String dfs(int L, int sum) {
-        if (total/2 < sum) return;
-        if (L == n) {
-            if (total - sum = sum) {
-                answer = "YES";
-                return;
-            }
-        }
-        
-        dfs(L + 1, sum + arr[L]);
-        dfs(L + 1, sum);
-    }
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        arr = new int[n];
-        for(int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(st.nextToken());
-            total += arr[i];
-        }
-
-        dfs(0, 0);
-
-        System.out.print(answer);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-public class Main {
-
-    static String answer = "NO";
-    static int n;
-    static int[] arr;
-    static int total = 0;
+    static int n, total;
     static boolean flag;
 
     public static void dfs(int L, int sum) {
-        if(flag || sum > total/2) return;
+        if(flag || total/2 < sum) return;
         if(L == n) {
             if(total - sum == sum) {
                 answer = "YES";
-                flag = true;
+                flag = false;
             }
         }else {
             dfs(L + 1, sum + arr[L]);
@@ -111,16 +35,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         n = Integer.parseInt(br.readLine());
         arr = new int[n];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-
         for(int i = 0; i < n; i++) {
-            int a = Integer.parseInt(st.nextToken());
-            arr[i] = a;
-            total += a;
+            arr[i] = Integer.parseInt(st.nextToken());
+            total += arr[i];
         }
 
         dfs(0, 0);

@@ -13,9 +13,8 @@ import java.util.*;
 
 public class Main {
 
-    static int c, n;
     static int[] arr;
-    static int answer = Integer.MIN_VALUE;
+    static int c, n, answer = Integer.MIN_VALUE;
 
     public static void dfs(int L, int sum) {
         if(c < sum) return;
@@ -32,7 +31,6 @@ public class Main {
         StringTokenizer st = new StringTokenizer(br.readLine());
         c = Integer.parseInt(st.nextToken());
         n = Integer.parseInt(st.nextToken());
-
         arr = new int[n];
 
         for(int i = 0; i < n; i++) {
