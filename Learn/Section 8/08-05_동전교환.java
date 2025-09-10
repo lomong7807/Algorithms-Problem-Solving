@@ -13,18 +13,16 @@ import java.util.*;
 
 public class Main {
 
+    static Integer[] arr;
     static int n, m, answer = Integer.MAX_VALUE;
-    static Integer[] coins;
 
     public static void dfs(int L, int sum) {
-        if(m < sum) return;
-        if(answer <= L) return;
-
+        if(m < sum || answer <= L) return;
         if(sum == m) {
-            answer = Math.min(answer, L);
+            answer = L;
         }else {
-            for(int i=0; i<n; i++){
-                dfs(L+1, sum+coins[i]);
+            for(int i = 0; i < n; i++) {
+                dfs(L + 1, sum + arr[i]);
             }
         }
     }
@@ -32,15 +30,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
-        coins = new Integer[n];
+        arr = new Integer[n];
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
-            coins[i] = Integer.parseInt(st.nextToken());
+            arr[i] = Integer.parseInt(st.nextToken());
         }
+
         m = Integer.parseInt(br.readLine());
 
-        Arrays.sort(coins, Collections.reverseOrder());
+        Arrays.sort(arr, Collections.reverseOrder());
 
         dfs(0, 0);
 
