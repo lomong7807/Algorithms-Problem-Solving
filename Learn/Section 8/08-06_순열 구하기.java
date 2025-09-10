@@ -14,29 +14,30 @@ import java.util.*;
 
 public class Main {
 
+    static StringBuilder sb = new StringBuilder();
     static int n, m;
     static int[] arr;
+    static boolean[] visited;
     static int[] pm;
-    static boolean[] ch;
 
     public static void dfs(int L) {
         if(L == m) {
             for(int x : pm) {
-                System.out.print(x + " ");
+                sb.append(x).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
         }else {
             for(int i = 0; i < n; i++) {
-                if(!ch[i]) {
-                    ch[i] = true;
+                if(!visited[i]) {
+                    visited[i] = true;
                     pm[L] = arr[i];
                     dfs(L + 1);
-                    ch[i] = false;
+                    visited[i] = false;
                 }
             }
         }
     }
-
+    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -45,7 +46,7 @@ public class Main {
         m = Integer.parseInt(st.nextToken());
         arr = new int[n];
         pm = new int[m];
-        ch = new boolean[n];
+        visited = new boolean[n];
 
         st = new StringTokenizer(br.readLine());
         for(int i = 0; i < n; i++) {
@@ -53,5 +54,7 @@ public class Main {
         }
 
         dfs(0);
+
+        System.out.print(sb);
     }
 }
