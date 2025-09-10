@@ -10,15 +10,16 @@ import java.util.*;
 
 public class Main {
 
-    static int n, m;
-    static boolean[] pm;
     static StringBuilder sb = new StringBuilder();
+    static int n, m;
+    static int[] pm;
 
     public static void dfs(int L) {
-        if(L == m) {
-            for(int x : pm) {
-                sb.append(x).append(" ").append("\n");
+        if(L == n) {
+            for(int i = 0; i < n; i++) {
+                sb.append(pm[i]).append(" ");
             }
+            sb.append("\n");
         }else {
             for(int i = 1; i <= n; i++) {
                 pm[L] = i;
@@ -30,6 +31,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
         pm = new int[m];
