@@ -35,23 +35,22 @@ public class Main {
         map[x][y] = 1;
 
         while(!Q.isEmpty()) {
-            int len = Q.size();
+            int[] cur = Q.poll();
 
-            for(int i = 0; i < len; i++) {
-                int[] cur = Q.poll();
+            int cx = cur[0];
+            int cy = cur[1];
 
-                for(int j = 0; j < 4; j++) {
-                    int nx = cur[0] + dx[j];
-                    int ny = cur[1] + dy[j];
+            for(int j = 0; j < 4; j++) {
+                int nx = cx + dx[j];
+                int ny = cy + dy[j];
 
-                    if(nx < 1 || 7 < nx || ny < 1 || 7 < ny || map[nx][ny] == 1) {
-                        continue;
-                    }
-
-                    Q.add(new int[]{nx, ny});
-                    dis[nx][ny] = dis[cur[0]][cur[1]] + 1;
-                    map[nx][ny] = 1;
+                if(nx < 1 || ny < 1 || 7 < nx || 7 < ny || 0 < map[nx][ny]) {
+                    continue;
                 }
+
+                map[nx][ny] = 1;
+                Q.add(new int[]{nx, ny});
+                dis[nx][ny] = dis[cx][cy] + 1;
             }
         }
     }
