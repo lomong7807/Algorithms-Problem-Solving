@@ -2,12 +2,11 @@ import java.io.*;
 import java.util.*;
 /**
  * 1. 문제정보
- *  - 제목 : 특정 거리의 도시 찾기
- *  - 번호 : 18352
- *  - 링크 : https://www.acmicpc.net/problem/18352
+ *  - 제목 : 최대 힙
+ *  - 번호 : 11279
+ *  - 링크 : https://www.acmicpc.net/problem/11279
  * 2. 풀이핵심
- *  - bfs
- *  - 최단 거리
+ *  - 
  * 3. 풀이후기
  *  - 
  */
