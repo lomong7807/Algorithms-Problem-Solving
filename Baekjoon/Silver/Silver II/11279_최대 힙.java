@@ -6,9 +6,11 @@ import java.util.*;
  *  - 번호 : 11279
  *  - 링크 : https://www.acmicpc.net/problem/11279
  * 2. 풀이핵심
- *  - 
+ *  - 우선순위 큐
  * 3. 풀이후기
- *  - 
+ *  - 우선순위 큐라는 자료구조가 있는지 몰랐어서 푸는데 꽤 많이 돌아갔다.
+ *  - PriorityQueue라는 자료구조가 있어 해당 자료구조에 오름차순으로 설정을 해주면 큰 수가 가장 앞에 오게 된다.
+ *  - 매우 쉬운 문제였다.
  */
 
 public class Main {
@@ -17,30 +19,18 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
 
-        int max = 0;
-
-        Queue<Integer> Q = new ArrayDeque<>();
+        PriorityQueue<Integer> Q = new PriorityQueue<Integer>(Collections.reverseOrder());
 
         for(int i = 0; i < n; i++) {
             int input = Integer.parseInt(br.readLine());
-            
+
             if(input == 0) {
                 if(Q.isEmpty()) {
                     sb.append(0).append("\n");
                 }else {
-                    while(true) {
-                        int cur = Q.poll();
-
-                        if(cur == max) {
-                            sb.append(cur).append("\n");
-                            break;
-                        }
-
-                        Q.offer(cur);
-                    }
+                    sb.append(Q.poll()).append("\n");
                 }
             }else {
-                max = Math.max(max, input);
                 Q.offer(input);
             }
         }
