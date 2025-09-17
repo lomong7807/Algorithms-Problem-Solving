@@ -3,8 +3,8 @@ import java.util.*;
 /**
  * 1. 문제정보
  *  - 제목 : 최소 힙
- *  - 번호 : 1927
- *  - 링크 : https://www.acmicpc.net/problem/1927
+ *  - 번호 : 11286
+ *  - 링크 : https://www.acmicpc.net/problem/11286
  * 2. 풀이핵심
  *  - 우선순위 큐
  * 3. 풀이후기
