@@ -28,7 +28,8 @@ public class Main {
                 if(Q.isEmpty()) {
                     sb.append(0).append("\n");
                 }else {
-                    sb.append(Q.poll()).append("\n");
+                    int x = Math.abs(Q.poll());
+                    sb.append().append("\n");
                 }
             }else {
                 Q.offer(input);
