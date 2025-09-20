@@ -22,8 +22,6 @@ public class Main {
         PriorityQueue<Integer> Q = new PriorityQueue<Integer>();
 
         for(int i = 0; i < n; i++) {
-            int input = Integer.parseInt(br.readLine());
-            int x = Math.abs(input);
 
             if(input == 0) {
                 if(Q.isEmpty()) {
