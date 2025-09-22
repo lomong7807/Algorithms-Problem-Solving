@@ -19,7 +19,6 @@ public class Main {
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
 
-
 /*
         // 익명 클래스로 일회성 구현
         PriorityQueue<Integer> Q = new PriorityQueue<Integer>(new Comparator<Integer>() {
