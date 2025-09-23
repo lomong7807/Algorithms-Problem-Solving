@@ -52,7 +52,6 @@ public class Main {
                         .thenComparingInt(Integer::intValue)
         );
 */
-
         for(int i = 0; i < n; i++) {
             int input = Integer.parseInt(br.readLine());
             if(input == 0) {
