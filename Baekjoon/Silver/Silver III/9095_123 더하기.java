@@ -14,10 +14,8 @@ import java.util.*;
 public class Main {
 
     static int count;
-    static Integer[] dp = new Integer[12];
 
     public static void dfs(int sum, int max) {
-        if(dp[sum] != null) return;
         if(sum > max) return;
         if(sum == max) {
             count++;
