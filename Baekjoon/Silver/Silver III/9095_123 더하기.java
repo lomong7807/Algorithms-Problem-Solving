@@ -13,24 +13,38 @@ import java.util.*;
 
 public class Main {
 
-    public static void dfs(int L, int sum) {
-        if(L == 2) {
+    static int count;
+    static Integer[] dp = new Integer[12];
 
+    public static void dfs(int sum, int max) {
+        if(dp[sum] != null) return;
+        if(sum > max) return;
+        if(sum == max) {
+            count++;
         } else {
             for(int i = 1; i <= 3; i++) {
-                dfs(i, sum);
+                dfs(sum + i, max);
             }
         }
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
         int t = Integer.parseInt(br.readLine());
 
+        int[] arr = new int[t];
         for(int i = 0; i < t; i++) {
-            int n = Integer.parseInt(br.readLine());
-
-            dfs(0, 0);
+            arr[i] = Integer.parseInt(br.readLine());
         }
+
+        for (int n : arr) {
+            count = 0;
+
+            dfs(0, n);
+            sb.append(count).append("\n");
+        }
+
+        System.out.println(sb);
     }
 }
