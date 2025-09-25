@@ -6,7 +6,8 @@ import java.util.*;
  *  - 번호 : 9095
  *  - 링크 : https://www.acmicpc.net/problem/9095
  * 2. 풀이핵심
- *  - 맵
+ *  - dfs
+ *  - dp
  * 3. 풀이후기
  *  - 어렵지 않은 문제였음
  */
