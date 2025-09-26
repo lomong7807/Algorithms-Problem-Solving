@@ -15,6 +15,7 @@ import java.util.*;
 public class Main {
 
     static int count;
+    static Integer[] memo = new Integer[12];
 
     public static void dfs(int sum, int max) {
         if(sum > max) return;
