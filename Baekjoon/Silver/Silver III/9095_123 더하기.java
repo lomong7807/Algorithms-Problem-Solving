@@ -18,6 +18,7 @@ public class Main {
     static Integer[] memo = new Integer[12];
 
     public static void dfs(int sum, int max) {
+        if(memo[] != null) return memo[];
         if(sum > max) return;
         if(sum == max) {
             count++;
