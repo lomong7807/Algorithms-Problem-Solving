@@ -6,9 +6,9 @@ import java.io.*;
  *  - 번호 : 9461
  *  - 링크 : https://www.acmicpc.net/problem/9461
  * 2. 풀이핵심
- *  - Map
+ *  - 
  * 3. 풀이후기
- *  - 옷 이름이 겹치지 않아서 Map<String, Integer>로 풀면 되는 문제
+ *  - 너무 어렵다...
  */
 
 public class Main {
